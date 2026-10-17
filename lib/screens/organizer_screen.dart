@@ -8,26 +8,29 @@ class OrganizerScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('Organizer'),
-        backgroundColor: Colors.white, foregroundColor: Colors.black, elevation: 0,
+        title: const Text('Organizer', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+        backgroundColor: Colors.white, 
+        foregroundColor: Colors.black, 
+        elevation: 0,
+        leading: const Icon(Icons.arrow_back_ios, size: 20),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(children: [
           const CircleAvatar(
             radius: 50,
-            backgroundImage: NetworkImage('https://i.pravatar.cc/150?img=12'),
+            backgroundColor: Color(0xFFF3E8FF), // Светло-фиолетовый фон
+            child: Icon(Icons.person, size: 60, color: Colors.purple),
           ),
           const SizedBox(height: 12),
-          const Text('Albert Flores',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 16),
+          const Text('Albert Flores', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 20),
           Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: const [
             _Stat('2.368', 'Followers'),
             _Stat('346', 'Following'),
             _Stat('13', 'Events'),
           ]),
-          const SizedBox(height: 20),
+          const SizedBox(height: 24),
           Row(children: [
             Expanded(child: OutlinedButton(
               onPressed: () {},
@@ -36,7 +39,7 @@ class OrganizerScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 14),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
               ),
-              child: const Text('Follow'),
+              child: const Text('Follow', style: TextStyle(color: Colors.blue)),
             )),
             const SizedBox(width: 12),
             Expanded(child: ElevatedButton(
@@ -50,18 +53,25 @@ class OrganizerScreen extends StatelessWidget {
             )),
           ]),
           const SizedBox(height: 24),
-          const Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            Text('About', style: TextStyle(color: Colors.grey)),
-            Text('Events', style: TextStyle(color: Colors.grey)),
-            Text('Reviews',
-                style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue)),
-          ]),
-          const Divider(height: 24),
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            decoration: const BoxDecoration(
+              border: Border(bottom: BorderSide(color: Colors.black12)),
+            ),
+            child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: const [
+              Text('About', style: TextStyle(color: Colors.grey, fontSize: 15)),
+              Text('Events', style: TextStyle(color: Colors.grey, fontSize: 15)),
+              Text('Reviews', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue, fontSize: 15)),
+            ]),
+          ),
+          const SizedBox(height: 16),
           const Text(
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do '
-            'eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            style: TextStyle(color: Colors.grey),
+            'eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            style: TextStyle(color: Colors.grey, height: 1.5),
           ),
+          const SizedBox(height: 8),
+          const Text('Read more...', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold)),
         ]),
       ),
     );

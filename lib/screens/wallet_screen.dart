@@ -8,14 +8,19 @@ class WalletScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('My E-Wallet'),
-        backgroundColor: Colors.white, foregroundColor: Colors.black, elevation: 0,
+        title: const Text('My E-Wallet', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+        backgroundColor: Colors.white, 
+        foregroundColor: Colors.black, 
+        elevation: 0,
+        leading: const Icon(Icons.arrow_back_ios, size: 20),
+        actions: const [Icon(Icons.search), SizedBox(width: 16)],
       ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
           Stack(children: [
             Container(
+              width: double.infinity,
               height: 180,
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
@@ -28,14 +33,17 @@ class WalletScreen extends StatelessWidget {
               child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Andrew Ainsley',
-                      style: TextStyle(color: Colors.white70, fontSize: 14)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('Andrew Ainsley', style: TextStyle(color: Colors.white70, fontSize: 14)),
+                      Text('VISA', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18)),
+                    ],
+                  ),
                   Spacer(),
-                  Text('Your balance',
-                      style: TextStyle(color: Colors.white54, fontSize: 12)),
+                  Text('Your balance', style: TextStyle(color: Colors.white54, fontSize: 12)),
                   SizedBox(height: 4),
-                  Text('\$9.379',
-                      style: TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold)),
+                  Text('\$9.379', style: TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold)),
                 ],
               ),
             ),
@@ -54,8 +62,7 @@ class WalletScreen extends StatelessWidget {
           ]),
           const SizedBox(height: 24),
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: const [
-            Text('Transaction History',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+            Text('Transaction History', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
             Text('See All', style: TextStyle(color: Colors.blue)),
           ]),
           const SizedBox(height: 12),
@@ -69,13 +76,12 @@ class WalletScreen extends StatelessWidget {
             ListTile(
               contentPadding: EdgeInsets.zero,
               leading: CircleAvatar(
-                backgroundColor: Colors.grey.shade200,
+                backgroundColor: Colors.grey.shade100,
                 child: Icon(Icons.shopping_bag_outlined, color: Colors.grey.shade700),
               ),
-              title: Text(row[0]),
-              subtitle: const Text('Dec 12, 2024 | 16:42 PM',
-                  style: TextStyle(fontSize: 11)),
-              trailing: Text(row[1], style: const TextStyle(fontWeight: FontWeight.bold)),
+              title: Text(row[0], style: const TextStyle(fontWeight: FontWeight.w500)),
+              subtitle: const Text('Dec 12, 2024 | 16:42 PM', style: TextStyle(fontSize: 11, color: Colors.grey)),
+              trailing: Text(row[1], style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
             ),
         ],
       ),
